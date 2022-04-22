@@ -1,0 +1,35 @@
+﻿<!-- INSTANCIAMOS EL MODELO A UTILIZAR -->
+@model CoreMVCEntityFramework.Models.UsuarioCLS
+
+@{
+    ViewData["Title"] = "Detalle del Usuario";
+}
+
+<h1 class="text-center"> Usuarios </h1>
+
+<br />
+
+
+<br />
+<div class="Row">
+    <div class="col-12">
+
+        <!-- CABECERA -->
+        <div class="card-header">
+            <h3><strong> Detalle del Usuario </strong> </h3>
+        </div>
+
+        <!-- TABLA -->
+        <div class="card-body">
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Nombre: </strong> @Html.DisplayFor(P => P.NOMBRE)</li>
+                    <li class="list-group-item"><strong>Apellidos: </strong> @Html.DisplayFor(P => P.APELLIDOS)</li>
+                    <li class="list-group-item"><strong>Teléfono Fijo: </strong> @Html.DisplayFor(P => P.TELEFONO)</li>
+                    <li class="list-group-item"><strong>Celular: </strong> @Html.DisplayFor(P => P.CELULAR)</li>
+                    <li class="list-group-item"><strong>Email: </strong> @Html.DisplayFor(P => P.Email)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

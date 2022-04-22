@@ -1,0 +1,104 @@
+﻿<!-- INSTANCIAMOS EL MODELO A UTILIZAR -->
+@model IEnumerable<CoreMVCEntityFramework.Models.UsuarioCLS>
+
+@{
+    ViewData["Title"] = "Administracion de Usuarios";
+}
+
+<h1 class="text-center"> Usuarios </h1>
+
+<br />
+<div class="row">
+    <!-- COLUMNA DE 6 ESPACIOS -->
+    <div class="col-12">
+        <div class="float-rigth">
+            <a asp-action="Crear" asp-controller="Usuarios" class="btn btn-success"> Crear Nuevo Usuario </a>
+        </div>
+    </div>
+</div>
+<br />
+<div class="Row">
+    <div class="col-12">
+
+        <!-- CABECERA -->
+        <div class="card-header">
+            <h3><strong> Lista de Usuarios </strong> </h3>
+        </div>
+
+        <!-- TABLA -->
+        <div class="card-body">
+            <div class="table-responsive">
+                @if (Model.Count() > 0)
+                {
+                    <table class="table table-bordered table-hover" id="tbUsuarios" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(P => P.ID)</th>
+                                <th>@Html.DisplayNameFor(P => P.NOMBRE)</th>
+                                <th>@Html.DisplayNameFor(P => P.APELLIDOS)</th>
+                                <th>@Html.DisplayNameFor(P => P.TELEFONO)</th>
+                                <th>@Html.DisplayNameFor(P => P.CELULAR)</th>
+                                <th>@Html.DisplayNameFor(P => P.Email)</th>
+                                <th> Operaciones </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                <!-- RECORREMOS LOS CAMPOS CON UN FOREACH -->
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(P => item.ID)</td>
+                            <td>@Html.DisplayFor(P => item.NOMBRE)</td>
+                            <td>@Html.DisplayFor(P => item.APELLIDOS)</td>
+                            <td>@Html.DisplayFor(P => item.TELEFONO)</td>
+                            <td>@Html.DisplayFor(P => item.CELULAR)</td>
+                            <td>@Html.DisplayFor(P => item.Email)</td>
+                            <!-- BOTONES -->
+                            <td>
+                                <a asp-route-id="@item.ID" asp-action="Editar" class="btn btn-success btn-sm"> Editar </a>
+                                <a asp-route-id="@item.ID" asp-action="Detalle" class="btn btn-primary btn-sm"> Detalle </a>
+                                <a asp-route-id="@item.ID" asp-action="Borrar" class="btn btn-danger btn-sm"> Eliminar </a>
+                            </td>
+                        </tr>
+                    }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>No hay usuarios disponibles </p>
+                }           
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{ 
+    <script>
+        $(document).ready(function () {
+            //Llamar a datatable
+            $('#tbUsuarios').DataTable({
+                language: {
+                    "decimal": "",
+                    "emptyTable": "No hay información",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar _MENU_ Entradas",
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "Sin resultados encontrados",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+        });        
+    </script>
+}

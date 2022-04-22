@@ -1,0 +1,69 @@
+﻿<!-- INSTANCIAMOS EL MODELO A UTILIZAR -->
+@model CoreMVCEntityFramework.Models.UsuarioCLS
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<div class="Row">
+    <div class="col-12">
+
+        <!-- CABECERA -->
+        <div class="card-header">
+            <h3 class="text-center"><strong> Editar Usuario </strong> </h3>     
+        <!-- TABLA -->
+        <div class="card-body">
+            <!-- ACCION PARA CREAR UN NUEVO USUARIO -->
+            <form asp-action="Editar">
+
+                <!-- PASAMOS EL ID DEL USUARIO -->
+                <input type="hidden" form="ID" />
+
+                <!-- VALIDAR LOS CAMPOS DEL MODELO -->
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                 <br />
+                <div class="form-group">
+                    <label asp-for="NOMBRE" class="control-label"></label>
+                    <input asp-for="NOMBRE" class="form-control" placeholder="Nombre de usuario" />
+                    <span asp-validation-for="NOMBRE" class="text-danger"></span>
+                </div>
+                 <br />
+
+                <div class="form-group">
+                    <label asp-for="APELLIDOS" class="control-label"></label>
+                    <input asp-for="APELLIDOS" class="form-control" placeholder="Apellidos" />
+                    <span asp-validation-for="APELLIDOS" class="text-danger"></span>
+                </div>
+                 <br />
+
+                 <div class="form-group">
+                    <label asp-for="TELEFONO" class="control-label"></label>
+                    <input asp-for="TELEFONO" class="form-control" placeholder="Teléfono fijo" />
+                    <span asp-validation-for="TELEFONO" class="text-danger"></span>
+                </div>
+                 <br />
+
+                 <div class="form-group">
+                    <label asp-for="CELULAR" class="control-label"></label>
+                    <input asp-for="CELULAR" class="form-control" placeholder="Celular" />
+                    <span asp-validation-for="CELULAR" class="text-danger"></span>
+                </div>
+                 <br />
+
+                 <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" placeholder="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                 <br />
+
+                <!-- BOTONES -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success"> Guardar Cambios </button>
+                    <a asp-action="Index" type="submit" class="btn btn-secondary"> Volver al listado de Usuarios </a>
+                </div>
+                 <br />
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
