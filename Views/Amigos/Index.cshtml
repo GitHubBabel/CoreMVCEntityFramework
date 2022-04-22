@@ -1,0 +1,18 @@
+﻿<!-- INSTANCIAMOS EL MODELO A UTILIZAR -->
+@model IEnumerable<CoreMVCEntityFramework.Models.AmigosCLS>
+
+@{
+    ViewData["Title"] = "Administracion de Usuarios";
+}
+
+<h1 class="text-center"> Lista de Amigos </h1>
+
+<br />
+<div class="row">
+    <!-- COLUMNA DE 6 ESPACIOS -->
+    <div class="col-12">
+        <div class="float-rigth">
+            <a asp-action="Crear" asp-controller="Usuarios" class="btn btn-success"> Crear Nuevo Amigo </a>
+        </div>
+    </div>
+</div>
